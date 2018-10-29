@@ -852,7 +852,8 @@ void Dataset::readAttributeInformation ( std::string& s, StringTokenizer& st, in
             maxAttValue[ attCount ] = atof ( max.c_str () );
         }
     }
-    else if ( toLowerCase ( s ).find ( "date" ) != std::string::npos ) {
+    else if ( s.find ( "{" ) == std::string::npos &&
+             toLowerCase ( s ).find ( "date" ) != std::string::npos ) {
 
         // Get the string that specifies the date format.
         int position;
