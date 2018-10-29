@@ -91,7 +91,10 @@ StringTokenizer::StringTokenizer ( std::string str, std::string sep = " ", std::
         count ++;
 
         // Discard while having the delimiter.
-        while ( i < ( int ) str.size () && ( str[i] == sep[0] || str[i] == sep2[0] || str[i] == '\n' || str[i] == ' ' || str[i] == '\t' ) ) i++;
+        while ( i < ( int ) str.size () && ( str[i] == '\n' || str[i] == ' ' || str[i] == '\t' ) ) i++;
+
+        // Discard seps
+        while (i < (int) str.size() && (str[i] == sep[0] || str[i] == sep2[0])) i++;
     }
     
 } // end StringTokenizer
